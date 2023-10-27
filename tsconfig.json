@@ -20,7 +20,8 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"]
-		}
+		},
+		"types": ["bun-types"]
 	},
 	"include": [
 		"next-env.d.ts",
@@ -28,7 +29,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"app/lib/placeholder-data.js",
-		"scripts/seed.js"
+		"scripts/seed.ts"
 	],
 	"exclude": ["node_modules"]
 }
