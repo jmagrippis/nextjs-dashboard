@@ -4,6 +4,10 @@ const config: Config = {
 	content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['var(--font-sans)'],
+				serif: ['var(--font-serif)'],
+			},
 			gridTemplateColumns: {
 				'13': 'repeat(13, minmax(0, 1fr))',
 			},
