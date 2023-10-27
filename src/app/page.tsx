@@ -1,15 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import AcmeLogo from '@/ui/acme-logo'
-import {fontSerif} from './fonts'
 
 export default function Page() {
 	return (
-		<main
-			className={clsx('flex min-h-screen flex-col p-6', fontSerif.variable)}
-		>
+		<main className="flex min-h-screen flex-col p-6">
 			<div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
 				<AcmeLogo />
 			</div>
