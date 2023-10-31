@@ -7,11 +7,6 @@ export const authConfig = {
 	},
 	callbacks: {
 		authorized({auth, request: {nextUrl}}) {
-			// TODO: Turn auth on :-)
-			if (!process.env.AUTH_ENABLED) {
-				return true
-			}
-
 			const isLoggedIn = !!auth?.user
 			const isOnDashboard = nextUrl.pathname.startsWith('/dashboard')
 
