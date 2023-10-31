@@ -16,10 +16,10 @@ import {FormErrorMessage} from './FormErrorMessage'
 const initialState = {message: null, errors: {}}
 
 export default function Form({customers}: {customers: CustomerField[]}) {
-	const [state, dispatch] = useFormState(createInvoice, initialState)
+	const [state, action] = useFormState(createInvoice, initialState)
 
 	return (
-		<form action={dispatch}>
+		<form action={action}>
 			<div className="rounded-md bg-gray-50 p-4 md:p-6">
 				{/* Customer Name */}
 				<div className="mb-4">
