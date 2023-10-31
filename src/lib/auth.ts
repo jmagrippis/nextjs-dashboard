@@ -5,6 +5,7 @@ import {sql} from '@vercel/postgres'
 
 import {User} from '@/lib/definitions'
 import {authConfig} from './auth.config'
+import {matchPassword} from './crypto'
 
 async function getUser(email: string): Promise<User | undefined> {
 	try {
@@ -29,11 +30,11 @@ export const {auth, signIn, signOut} = NextAuth({
 					const {email, password} = parsedCredentials.data
 					const user = await getUser(email)
 					if (!user) return null
-					// TODO: Compare password hashes
-					const passwordsMatch = true
-
-					// TODO: NEXT_REDIRECT error?
-					if (passwordsMatch) return user
+					if (matchPassword(password, user.password)) {
+						return user
+					} else {
+						return null
+					}
 				}
 
 				return null

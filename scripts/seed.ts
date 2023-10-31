@@ -5,6 +5,7 @@ import {
 	revenue,
 	users,
 } from '../src/lib/placeholder-data.js'
+import {hashPassword} from '@/lib/crypto.js'
 
 async function seedUsers() {
 	try {
@@ -24,10 +25,8 @@ async function seedUsers() {
 		// Insert data into the "users" table
 		const insertedUsers = await Promise.all(
 			users.map(async (user) => {
-				const hashedPassword = await Bun.password.hash(user.password, {
-					algorithm: 'bcrypt',
-					cost: 10, // number between 4-31
-				})
+				const hashedPassword = hashPassword(user.password)
+
 				return sql`
         INSERT INTO users (id, name, email, password)
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
