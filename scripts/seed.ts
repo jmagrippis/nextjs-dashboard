@@ -1,13 +1,13 @@
-const {db} = require('@vercel/postgres')
-const {
+import {type VercelPoolClient, db} from '@vercel/postgres'
+import {
 	invoices,
 	customers,
 	revenue,
 	users,
-} = require('../app/lib/placeholder-data.js')
-const bcrypt = require('bcrypt')
+} from '../src/lib/placeholder-data.js'
+import {hashPassword} from '@/lib/crypto.js'
 
-async function seedUsers(client) {
+async function seedUsers(client: VercelPoolClient) {
 	try {
 		await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`
 		// Create the "invoices" table if it doesn't exist
@@ -25,7 +25,7 @@ async function seedUsers(client) {
 		// Insert data into the "users" table
 		const insertedUsers = await Promise.all(
 			users.map(async (user) => {
-				const hashedPassword = await bcrypt.hash(user.password, 10)
+				const hashedPassword = hashPassword(user.password)
 				return client.sql`
         INSERT INTO users (id, name, email, password)
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
@@ -46,7 +46,7 @@ async function seedUsers(client) {
 	}
 }
 
-async function seedInvoices(client) {
+async function seedInvoices(client: VercelPoolClient) {
 	try {
 		await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`
 
@@ -86,7 +86,7 @@ async function seedInvoices(client) {
 	}
 }
 
-async function seedCustomers(client) {
+async function seedCustomers(client: VercelPoolClient) {
 	try {
 		await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`
 
@@ -125,7 +125,7 @@ async function seedCustomers(client) {
 	}
 }
 
-async function seedRevenue(client) {
+async function seedRevenue(client: VercelPoolClient) {
 	try {
 		// Create the "revenue" table if it doesn't exist
 		const createTable = await client.sql`
@@ -168,7 +168,7 @@ async function main() {
 	await seedInvoices(client)
 	await seedRevenue(client)
 
-	await client.end()
+	client.release()
 }
 
 main().catch((err) => {
