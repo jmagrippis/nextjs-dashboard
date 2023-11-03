@@ -5,8 +5,10 @@ import {loggedInCredentials} from './credentials'
 setup('authenticate', async ({page}) => {
 	// Perform authentication steps. Replace these actions with your own.
 	await page.goto('/login')
-	await page.getByLabel('email').fill('user@nextmail.com')
-	await page.getByLabel('password').fill('123456')
+	await page.getByLabel('email').fill('playwright@example.com')
+	await page
+		.getByLabel('password')
+		.fill(process.env.PLAYWRIGHT_USER_PASSWORD || '123456')
 	await page.getByRole('button', {name: 'Log in'}).click()
 	// Wait until the page receives the cookies.
 	//
