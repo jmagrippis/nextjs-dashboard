@@ -2,6 +2,7 @@
 
 import {useFormStatus} from 'react-dom'
 import {Button} from './button'
+import SvgSpinner from './icons/Spinner'
 
 type Props = {
 	children: React.ReactNode
@@ -13,7 +14,7 @@ export function SubmitButton({children, className}: Props) {
 
 	return (
 		<Button className={className} disabled={pending}>
-			{children}
+			{pending ? <SvgSpinner className="w-4" /> : children}
 		</Button>
 	)
 }
