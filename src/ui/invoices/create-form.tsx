@@ -8,10 +8,11 @@ import {
 	CurrencyDollarIcon,
 	UserCircleIcon,
 } from '@heroicons/react/24/outline'
-import {Button} from '../button'
-import {createInvoice} from './actions'
 import {useFormState} from 'react-dom'
+
+import {createInvoice} from './actions'
 import {FormErrorMessage} from './FormErrorMessage'
+import {SubmitButton} from '../SubmitButton'
 
 const initialState = {message: null, errors: {}}
 
@@ -124,7 +125,7 @@ export default function Form({customers}: {customers: CustomerField[]}) {
 				>
 					Cancel
 				</Link>
-				<Button>Create Invoice</Button>
+				<SubmitButton>Create Invoice</SubmitButton>
 			</div>
 		</form>
 	)

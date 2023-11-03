@@ -7,9 +7,9 @@ import {
 } from '@heroicons/react/24/outline'
 import {ArrowRightIcon} from '@heroicons/react/20/solid'
 
-import {Button} from './button'
-import {useFormState, useFormStatus} from 'react-dom'
+import {useFormState} from 'react-dom'
 import {authenticate} from '@/app/login/actions'
+import {SubmitButton} from './SubmitButton'
 
 export default function LoginForm() {
 	const [code, action] = useFormState(authenticate, undefined)
@@ -75,12 +75,8 @@ export default function LoginForm() {
 	)
 }
 
-function LoginButton() {
-	const {pending} = useFormStatus()
-
-	return (
-		<Button className="mt-4 w-full" aria-disabled={pending}>
-			Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-		</Button>
-	)
-}
+const LoginButton = () => (
+	<SubmitButton className="mt-4 w-full">
+		Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+	</SubmitButton>
+)
