@@ -1,20 +1,11 @@
-'use client'
+import {AtSymbolIcon, KeyIcon} from '@heroicons/react/24/outline'
+import {ArrowRightIcon} from '@heroicons/react/20/solid'
 
-import {
-	AtSymbolIcon,
-	KeyIcon,
-	ExclamationCircleIcon,
-} from '@heroicons/react/24/outline'
-
-import {authenticate} from '@/app/login/actions'
-import {LoginButton} from './LoginButton'
-import {useFormState} from 'react-dom'
+import {Button} from './button'
 
 export default function LoginForm() {
-	const [code, action] = useFormState(authenticate, undefined)
-
 	return (
-		<form action={action} className="space-y-3">
+		<form className="space-y-3">
 			<div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
 				<h1 className="mb-3 font-serif text-2xl">Please log in to continue.</h1>
 				<div className="w-full">
@@ -60,16 +51,17 @@ export default function LoginForm() {
 				</div>
 				<LoginButton />
 				<div className="flex h-8 items-end space-x-1">
-					{code === 'CredentialSignin' && (
-						<>
-							<ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-							<p aria-live="polite" className="text-sm text-red-500">
-								Invalid credentials
-							</p>
-						</>
-					)}
+					{/* Add form errors here */}
 				</div>
 			</div>
 		</form>
+	)
+}
+
+function LoginButton() {
+	return (
+		<Button className="mt-4 w-full">
+			Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+		</Button>
 	)
 }
