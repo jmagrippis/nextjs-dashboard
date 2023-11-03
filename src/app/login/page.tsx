@@ -4,7 +4,7 @@ import AcmeLogo from '@/ui/acme-logo'
 import LoginForm from '@/ui/login-form'
 
 export const metadata: Metadata = {
-	title: 'Login',
+	title: 'Log in',
 	description:
 		'Login to the Acme Dashboard and access and manage your invoices.',
 }

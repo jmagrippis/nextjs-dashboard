@@ -5,5 +5,12 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-	return <p>Customers Page</p>
+	return (
+		<div className="w-full">
+			<div className="flex w-full items-center justify-between">
+				<h1 className="font-serif text-2xl">Customers</h1>
+			</div>
+			<p>TODO: Implement Customers View 😄</p>
+		</div>
+	)
 }

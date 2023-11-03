@@ -8,7 +8,8 @@
 		"start": "next start",
 		"format": "prettier --write .",
 		"lint": "next lint",
-		"seed": "bun ./scripts/seed.ts"
+		"seed": "bun ./scripts/seed.ts",
+		"test": "playwright test"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.0.18",
@@ -28,6 +29,7 @@
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
+		"@playwright/test": "^1.39.0",
 		"@types/react": "^18.2.3",
 		"@types/react-dom": "^18.2.14",
 		"bun-types": "^1.0.7",
