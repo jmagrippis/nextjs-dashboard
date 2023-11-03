@@ -1,12 +1,18 @@
+import type {Metadata} from 'next'
+import {Suspense} from 'react'
+
 import Cards from '@/ui/dashboard/cards'
 import RevenueChart from '@/ui/dashboard/revenue-chart'
 import LatestInvoices from '@/ui/dashboard/latest-invoices'
-import {Suspense} from 'react'
 import {
 	CardsSkeleton,
 	LatestInvoicesSkeleton,
 	RevenueChartSkeleton,
 } from '@/ui/skeletons'
+
+export const metadata: Metadata = {
+	title: 'Dashboard Overview',
+}
 
 export default async function Page() {
 	return (
