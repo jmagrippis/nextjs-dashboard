@@ -1,5 +1,6 @@
 import './global.css'
 
+import {Analytics} from '@vercel/analytics/react'
 import type {Metadata} from 'next'
 import clsx from 'clsx'
 
@@ -20,7 +21,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			lang="en"
 			className={clsx('antialiased', fontSans.variable, fontSerif.variable)}
 		>
-			<body>{children}</body>
+			<body>
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	)
 }
