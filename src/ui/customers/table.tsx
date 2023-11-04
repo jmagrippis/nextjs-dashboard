@@ -1,11 +1,12 @@
 import Image from 'next/image'
+
+import {CustomerWithInvoices} from '@/lib/data'
 import Search from '../search'
-import {CustomersTable, FormattedCustomersTable} from '@/lib/definitions'
 
 export default async function CustomersTable({
 	customers,
 }: {
-	customers: FormattedCustomersTable[]
+	customers: CustomerWithInvoices[]
 }) {
 	return (
 		<div className="w-full">

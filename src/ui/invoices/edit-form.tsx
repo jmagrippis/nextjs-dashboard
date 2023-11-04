@@ -9,10 +9,11 @@ import {
 import Link from 'next/link'
 import {useFormState} from 'react-dom'
 
-import type {CustomerField, InvoiceForm} from '@/lib/definitions'
+import type {Invoice} from '@prisma/client'
 import {updateInvoice} from './actions'
 import {FormErrorMessage} from './FormErrorMessage'
 import {SubmitButton} from '../SubmitButton'
+import type {CustomerForSelect} from '@/lib/data'
 
 const initialState = {message: null, errors: {}}
 
@@ -20,8 +21,8 @@ export default function EditInvoiceForm({
 	invoice,
 	customers,
 }: {
-	invoice: InvoiceForm
-	customers: CustomerField[]
+	invoice: Omit<Invoice, 'date'>
+	customers: CustomerForSelect[]
 }) {
 	const [state, action] = useFormState(
 		updateInvoice.bind(null, invoice.id),
@@ -74,6 +75,8 @@ export default function EditInvoiceForm({
 								id="amount"
 								name="amount"
 								type="number"
+								step="0.01"
+								min="0"
 								defaultValue={invoice.amount}
 								placeholder="Enter USD amount"
 								className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"

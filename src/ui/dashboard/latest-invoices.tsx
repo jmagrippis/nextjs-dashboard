@@ -24,18 +24,18 @@ export default async function LatestInvoices() {
 							>
 								<div className="flex items-center">
 									<Image
-										src={invoice.image_url}
+										src={invoice.customer.image_url}
 										className="mr-4 rounded-full"
 										width={32}
 										height={32}
-										alt={`The user avatar of ${invoice.name}`}
+										alt={`The user avatar of ${invoice.customer.name}`}
 									/>
 									<div className="min-w-0">
 										<p className="truncate text-sm font-semibold md:text-base">
-											{invoice.name}
+											{invoice.customer.name}
 										</p>
 										<p className="hidden text-sm text-gray-500 sm:block">
-											{invoice.email}
+											{invoice.customer.email}
 										</p>
 									</div>
 								</div>
