@@ -1,9 +1,20 @@
 # Next.js App Router Course - Code-along with Johnny
 
-This is Johnny's final result after going through the [Next.js App Router Course](https://nextjs.org/learn)!
+Hello and welcome, I'm Johnny and this is my final result after going through the [Next.js App Router Course](https://nextjs.org/learn)!
 
 ## Livestreams
 
-Johnny livestreamed development, going over why we diverged when we did, debugged a few errors, and of course highlighting a lot of the things the course gets right and teaches particularly well!
+We livestreamed development across 3 episodes!
+
+It was fun, and besides implementing according to the curriculum, we also discussed when we could diverge, when we **should** diverge, debugged a few errors... and of course highlighted some of the things the course gets right and teaches particularly well!
 
 - [Overview & Chapters 1-11](https://www.youtube.com/watch?v=l07E3GZLwTc)
+- [Chapters 12-14 + Auth attempts](https://www.youtube.com/watch?v=RK6cG2Hy-G8)
+- [Chapters 15-16 & Bonuses](https://www.youtube.com/watch?v=L9PKZoyhZyg)
+
+Bonuses include:
+
+- E2E tests with [Playwright](https://playwright.dev/)
+- Migrations & ORM with [Prisma](https://www.prisma.io/)
+- SVGs as React Components with [SVGR](https://react-svgr.com/)
+- Working & styled Customers page!
