@@ -13,6 +13,12 @@ export const users = [
 		email: 'playwright@example.com',
 		password: hashPassword(process.env.PLAYWRIGHT_USER_PASSWORD || '123456'),
 	},
+	{
+		id: 'a78887ed-edda-4344-af02-5ddfc3acf407',
+		name: 'Delba de Oliveira',
+		email: 'delba@oliveira.com',
+		password: hashPassword(process.env.DELBA_USER_PASSWORD || '123456'),
+	},
 ]
 
 export const customers = [
