@@ -184,10 +184,17 @@ export async function fetchCustomers() {
 
 export type CustomerWithInvoices = Customer & {
 	total_invoices: number
-	total_pending: number
-	total_paid: number
+	total_pending: BigInt
+	total_paid: BigInt
 }
-export async function fetchFilteredCustomers(query: string) {
+export type CustomerWithFormattedInvoices = Customer & {
+	total_invoices: number
+	total_pending: string
+	total_paid: string
+}
+export async function fetchFilteredCustomers(
+	query: string,
+): Promise<CustomerWithFormattedInvoices[]> {
 	noStore()
 
 	try {
@@ -211,8 +218,8 @@ export async function fetchFilteredCustomers(query: string) {
 
 		return dbCustomers.map((customer) => ({
 			...customer,
-			total_pending: formatCurrency(customer.total_pending),
-			total_paid: formatCurrency(customer.total_paid),
+			total_pending: formatCurrency(Number(customer.total_pending)),
+			total_paid: formatCurrency(Number(customer.total_paid)),
 		}))
 	} catch (err) {
 		console.error('Database Error:', err)
