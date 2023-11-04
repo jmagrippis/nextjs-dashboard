@@ -1,10 +1,16 @@
+'use client'
+
 import {GlobeAltIcon} from '@heroicons/react/24/outline'
+import {usePathname} from 'next/navigation'
 
 export default function AcmeLogo() {
+	const pathname = usePathname()
+
+	const TextElement = pathname === '/' ? 'h1' : 'span'
 	return (
 		<div className="flex flex-row items-center font-serif leading-none text-white">
 			<GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
-			<h1 className="text-[44px]">Acme</h1>
+			<TextElement className="text-[44px]">Acme</TextElement>
 		</div>
 	)
 }
