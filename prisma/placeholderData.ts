@@ -1,21 +1,21 @@
-// This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
-// https://nextjs.org/learn/dashboard-app/fetching-data
-const users = [
+import {hashPassword} from '@/lib/crypto'
+
+export const users = [
 	{
 		id: '410544b2-4001-4271-9855-fec4b6a6442a',
 		name: 'User',
 		email: 'user@nextmail.com',
-		password: '123456',
+		password: hashPassword(process.env.DEMO_USER_PASSWORD || '123456'),
 	},
 	{
 		id: 'ddb70b41-af7b-4805-aaf6-c4f3393b450d',
 		name: 'Playwright',
 		email: 'playwright@example.com',
-		password: process.env.PLAYWRIGHT_USER_PASSWORD || '123456',
+		password: hashPassword(process.env.PLAYWRIGHT_USER_PASSWORD || '123456'),
 	},
 ]
 
-const customers = [
+export const customers = [
 	{
 		id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
 		name: 'Delba de Oliveira',
@@ -78,100 +78,100 @@ const customers = [
 	},
 ]
 
-const invoices = [
+export const invoices = [
 	{
 		customer_id: customers[0].id,
 		amount: 15795,
 		status: 'pending',
-		date: '2022-12-06',
+		date: new Date('2022-12-06').toISOString(),
 	},
 	{
 		customer_id: customers[1].id,
 		amount: 20348,
 		status: 'pending',
-		date: '2022-11-14',
+		date: new Date('2022-11-14').toISOString(),
 	},
 	{
 		customer_id: customers[4].id,
 		amount: 3040,
 		status: 'paid',
-		date: '2022-10-29',
+		date: new Date('2022-10-29').toISOString(),
 	},
 	{
 		customer_id: customers[3].id,
 		amount: 44800,
 		status: 'paid',
-		date: '2023-09-10',
+		date: new Date('2023-09-10').toISOString(),
 	},
 	{
 		customer_id: customers[5].id,
 		amount: 34577,
 		status: 'pending',
-		date: '2023-08-05',
+		date: new Date('2023-08-05').toISOString(),
 	},
 	{
 		customer_id: customers[7].id,
 		amount: 54246,
 		status: 'pending',
-		date: '2023-07-16',
+		date: new Date('2023-07-16').toISOString(),
 	},
 	{
 		customer_id: customers[6].id,
 		amount: 666,
 		status: 'pending',
-		date: '2023-06-27',
+		date: new Date('2023-06-27').toISOString(),
 	},
 	{
 		customer_id: customers[3].id,
 		amount: 32545,
 		status: 'paid',
-		date: '2023-06-09',
+		date: new Date('2023-06-09').toISOString(),
 	},
 	{
 		customer_id: customers[4].id,
 		amount: 1250,
 		status: 'paid',
-		date: '2023-06-17',
+		date: new Date('2023-06-17').toISOString(),
 	},
 	{
 		customer_id: customers[5].id,
 		amount: 8546,
 		status: 'paid',
-		date: '2023-06-07',
+		date: new Date('2023-06-07').toISOString(),
 	},
 	{
 		customer_id: customers[1].id,
 		amount: 500,
 		status: 'paid',
-		date: '2023-08-19',
+		date: new Date('2023-08-19').toISOString(),
 	},
 	{
 		customer_id: customers[5].id,
 		amount: 8945,
 		status: 'paid',
-		date: '2023-06-03',
+		date: new Date('2023-06-03').toISOString(),
 	},
 	{
 		customer_id: customers[2].id,
 		amount: 8945,
 		status: 'paid',
-		date: '2023-06-18',
+		date: new Date('2023-06-18').toISOString(),
 	},
 	{
 		customer_id: customers[0].id,
 		amount: 8945,
 		status: 'paid',
-		date: '2023-10-04',
+		date: new Date('2023-10-04').toISOString(),
 	},
 	{
 		customer_id: customers[2].id,
 		amount: 1000,
 		status: 'paid',
-		date: '2022-06-05',
+		date: new Date('2022-06-05').toISOString(),
 	},
 ]
 
-const revenue = [
+export const revenue = [
 	{month: 'Jan', revenue: 2000},
 	{month: 'Feb', revenue: 1800},
 	{month: 'Mar', revenue: 2200},
@@ -185,10 +185,3 @@ const revenue = [
 	{month: 'Nov', revenue: 3000},
 	{month: 'Dec', revenue: 4800},
 ]
-
-module.exports = {
-	users,
-	customers,
-	invoices,
-	revenue,
-}

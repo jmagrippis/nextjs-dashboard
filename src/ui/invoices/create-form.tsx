@@ -1,6 +1,5 @@
 'use client'
 
-import {CustomerField} from '@/lib/definitions'
 import Link from 'next/link'
 import {
 	CheckIcon,
@@ -13,10 +12,11 @@ import {useFormState} from 'react-dom'
 import {createInvoice} from './actions'
 import {FormErrorMessage} from './FormErrorMessage'
 import {SubmitButton} from '../SubmitButton'
+import type {CustomerForSelect} from '@/lib/data'
 
 const initialState = {message: null, errors: {}}
 
-export default function Form({customers}: {customers: CustomerField[]}) {
+export default function Form({customers}: {customers: CustomerForSelect[]}) {
 	const [state, action] = useFormState(createInvoice, initialState)
 
 	return (
@@ -65,6 +65,7 @@ export default function Form({customers}: {customers: CustomerField[]}) {
 								name="amount"
 								type="number"
 								step="0.01"
+								min="0"
 								placeholder="Enter USD amount"
 								className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
 								required

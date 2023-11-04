@@ -76,7 +76,7 @@ export default function LoginForm() {
 }
 
 const LoginButton = () => (
-	<SubmitButton className="mt-4 w-full">
-		Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+	<SubmitButton className="mt-4 flex w-full justify-center">
+		Log in <ArrowRightIcon className="ml-4 h-5 w-5 text-gray-50" />
 	</SubmitButton>
 )
