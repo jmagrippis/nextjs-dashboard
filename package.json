@@ -3,14 +3,15 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"build": "prisma generate && next build",
+		"build": "next build",
 		"dev": "next dev",
 		"start": "next start",
 		"format": "prettier --write .",
 		"lint": "next lint",
 		"seed": "bun ./scripts/seed.ts",
 		"test": "playwright test",
-		"generate": "svgr --no-index --out-dir src src"
+		"generate": "svgr --no-index --out-dir src src",
+		"postinstall": "prisma generate"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.0.18",
