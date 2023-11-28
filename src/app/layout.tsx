@@ -6,7 +6,8 @@ import type {Metadata} from 'next'
 import clsx from 'clsx'
 
 import {fontSans, fontSerif} from './fonts'
-import {defaultLocale} from '@/lib/i18n'
+import {defaultLocale, isAvailableLocale} from '@/lib/i18n'
+import {setLanguageTag} from '@/paraglide/runtime'
 
 export const metadata: Metadata = {
 	title: {
@@ -18,7 +19,10 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
-	const locale = headers().get('x-locale') ?? defaultLocale
+	const xLocale = headers().get('x-locale')
+	const locale = isAvailableLocale(xLocale) ? xLocale : defaultLocale
+	setLanguageTag(locale)
+
 	return (
 		<html
 			lang={locale}

@@ -2,14 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import AcmeLogo from '@/ui/acme-logo'
-import {getDictionary} from '@/lib/i18n'
-import {headers} from 'next/headers'
+import * as m from '@/paraglide/messages'
 
 export default async function Page() {
-	const locale = headers().get('x-locale')
-
-	const m = await getDictionary(locale)
-
 	return (
 		<main className="flex min-h-screen flex-col p-6">
 			<div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -21,13 +16,13 @@ export default async function Page() {
 					<p
 						className={`font-serif text-xl text-gray-800 md:text-3xl md:leading-normal`}
 					>
-						{m.indexHero}
+						{m.indexHero()}
 					</p>
 					<Link
 						href="/login"
 						className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
 					>
-						<span>{m.logIn}</span>
+						<span>{m.logIn()}</span>
 					</Link>
 				</div>
 				<div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">

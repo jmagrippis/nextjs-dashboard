@@ -9,6 +9,7 @@ import {
 	isAvailableLocale,
 } from './lib/i18n'
 import {NextResponse} from 'next/server'
+import {setLanguageTag} from './paraglide/runtime'
 
 export default NextAuth(authConfig).auth((request) => {
 	const userLanguages = request.headers.get('Accept-Language')
@@ -25,6 +26,8 @@ export default NextAuth(authConfig).auth((request) => {
 
 	const newHeaders = new Headers(request.headers)
 	newHeaders.set('x-locale', locale)
+
+	setLanguageTag(locale)
 
 	return NextResponse.next({
 		request: {
