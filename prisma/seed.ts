@@ -1,7 +1,6 @@
 import {PrismaClient} from '@prisma/client'
 
 import {customers, invoices, revenue, users} from './placeholderData'
-import {hashPassword} from '@/lib/crypto'
 
 const prisma = new PrismaClient()
 
