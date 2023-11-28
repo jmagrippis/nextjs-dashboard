@@ -1,10 +1,13 @@
 import './global.css'
 
 import {Analytics} from '@vercel/analytics/react'
+import {headers} from 'next/headers'
 import type {Metadata} from 'next'
 import clsx from 'clsx'
 
 import {fontSans, fontSerif} from './fonts'
+import {defaultLocale, isAvailableLocale} from '@/lib/i18n'
+import {setLanguageTag} from '@/paraglide/runtime'
 
 export const metadata: Metadata = {
 	title: {
@@ -16,9 +19,13 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
+	const xLocale = headers().get('x-locale')
+	const locale = isAvailableLocale(xLocale) ? xLocale : defaultLocale
+	setLanguageTag(locale)
+
 	return (
 		<html
-			lang="en"
+			lang={locale}
 			className={clsx('antialiased', fontSans.variable, fontSerif.variable)}
 		>
 			<body>

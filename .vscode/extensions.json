@@ -1,0 +1,16 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+	"recommendations": [
+		"codezombiech.gitignore",
+		"bradlc.vscode-tailwindcss",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"github.vscode-github-actions",
+		"inlang.vs-code-extension",
+		"mikestead.dotenv",
+		"ms-playwright.playwright",
+		"Prisma.prisma",
+		"streetsidesoftware.code-spell-checker",
+		"streetsidesoftware.code-spell-checker-greek"
+	]
+}
